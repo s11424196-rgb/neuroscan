@@ -195,3 +195,4 @@ class InferencePipeline:
             processing_time_seconds=round(elapsed, 4),
             model_version=self.model_version,
         )
+

@@ -139,3 +139,4 @@ elif page == "Scan History":
     history.render()
 elif page == "About & Ethics":
     about.render()
+
