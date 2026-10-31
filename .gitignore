@@ -1,0 +1,60 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Data and models (large files)
+data/raw/
+data/processed/
+data/synthetic/
+data/uploads/
+models/registry/*.pt
+models/registry/*.pth
+models/registry/*.onnx
+*.nii
+*.nii.gz
+*.dcm
+
+# Database
+*.db
+
+# Reports (generated)
+reports/*.pdf
+reports/*.csv
+
+# Environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# MLOps
+mlruns/
+wandb/
+

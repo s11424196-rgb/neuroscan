@@ -1,0 +1,19 @@
+# Streamlit configuration for NeuroScan AI
+# Professional medical-themed UI settings
+
+[theme]
+primaryColor = "#0077B6"
+backgroundColor = "#F8FBFF"
+secondaryBackgroundColor = "#E8F4FD"
+textColor = "#1B2A4A"
+font = "sans serif"
+
+[server]
+headless = true
+maxUploadSize = 200
+
+[browser]
+gatherUsageStats = false
+
+[runner]
+magicEnabled = false

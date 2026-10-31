@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: neuroscan-api
+    ports:
+      - "8000:8000"
+    environment:
+      - MOCK_INFERENCE=true
+      - PYTHONPATH=/app
+      - UPLOAD_DIR=/app/data/uploads
+      - MODEL_DIR=/app/models/registry
+      - DATABASE_URL=sqlite:///app/data/audit.db
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: neuroscan-frontend
+    command: streamlit run src/frontend/app.py --server.port 8501 --server.address 0.0.0.0
+    ports:
+      - "8501:8501"
+    environment:
+      - API_BASE_URL=http://api:8000
+      - PYTHONPATH=/app
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  data:
+  models:
+

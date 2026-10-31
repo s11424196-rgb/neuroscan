@@ -1,0 +1,37 @@
+# NeuroScan AI Training Configurations
+
+tumour:
+  task: "tumour"
+  backbone: "efficientnet_b0"
+  num_classes: 4
+  class_names: ["glioma", "meningioma", "pituitary", "no_tumour"]
+  image_size: 224
+  batch_size: 32
+  epochs: 40
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  freeze_backbone_epochs: 5
+  early_stopping_patience: 10
+  use_amp: true
+  mc_dropout_samples: 10
+  seed: 42
+  target_macro_f1: 0.92
+  target_sensitivity: 0.90
+
+alzheimer:
+  task: "alzheimer"
+  backbone: "resnet50"
+  num_classes: 4
+  class_names: ["non_demented", "very_mild", "mild", "moderate"]
+  image_size: 224
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  freeze_backbone_epochs: 5
+  early_stopping_patience: 12
+  use_amp: true
+  mc_dropout_samples: 10
+  seed: 42
+  target_macro_f1: 0.80
+  target_auroc: 0.90
